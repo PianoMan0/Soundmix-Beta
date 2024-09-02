@@ -60,7 +60,7 @@ height: 40px;
 }
 main {
   background: rgb(2,0,36);
-  background: linear-gradient(328deg, #020224 0%, #090979 40%, #0039FF 100%);
+  background: linear-gradient(328deg, #020224 0%, #090979 40%, #006eff 100%); /* #006eff used to be #0039FF */
   margin: auto;
   max-width: 500px;
   width:100%;
@@ -97,7 +97,7 @@ input#searchbar {
   padding:7.5px;
   color: #ffffff;
   text-decoration:none;
-  transition: all .5s;
+  transition: all 0.8s;
 }
 input#searchbar:hover {
   font-family: sans-serif;
