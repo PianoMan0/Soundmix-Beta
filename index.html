@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head> <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>SoundMix Beta</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+<style>
+#radio {
+  font-family: Arial;
+}
+#body {
+  position: absolute;
+  top: 50px;
+  width: 200px;
+  height: 100px;
+  left: calc(50vw - 115px);
+  margin-left: auto;margin-right: auto;
+  border-radius: 15px;
+  background-color: #d9d9d9;
+  text-align: center;
+  
+}
+#leftcircle {
+position: absolute;
+left: calc(50vw - 100px);
+top: 88px;
+background-color: #000000;
+border: 3px solid white;
+border-radius: 50%;
+width: 40px;
+height: 40px;
+
+}
+#rightcircle {
+position: absolute;
+left: calc(50vw + 30px);
+top: 88px;
+background-color: #000000;
+border: 3px solid white;
+border-radius: 50%;
+width: 40px;
+height: 40px;  
+
+}
+#station {
+  width:40px;
+  background-color: #000000;
+  letter-spacing: -2.5px;
+  padding: 5px;
+  position: absolute;
+  left: calc(50vw - 40px);
+  top: 98px;
+  text-align: center;
+  color:#878787;
+}
+#antennae {
+  width:75px;
+  background-color: #ffffff;
+  height: 5px;
+  transform: rotate(-45deg);
+  position: absolute;
+  left: calc(50vw - 37.5px);
+  top: 30px;
+}
+main {
+  background: rgb(2,0,36);
+  background: linear-gradient(328deg, #020224 0%, #090979 40%, #0039FF 100%);
+  margin: auto;
+  max-width: 500px;
+  width:100%;
+  border-radius: 15px;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+}
+#elements {
+  margin: 10px;
+  color: #ffffff;
+}
+body {
+  font-family: sans-serif;
+  background: rgb(11, 11, 11);
+  color: white;
+}
+a {
+  color: #ffffff;
+  text-decoration:none;
+  font-family: 'Courier New', Courier, monospace
+}
+input#searchbar {
+  font-family: sans-serif;
+  background: rgb(2,0,36);
+  background:linear-gradient(328deg, #000000 0%, #232323 40%, #444444 100%);;
+  margin: auto;
+  max-width: 480px;
+  width:90%;
+  border-radius: 5px;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+  padding:7.5px;
+  color: #ffffff;
+  text-decoration:none;
+  transition: all .5s;
+}
+input#searchbar:hover {
+  font-family: sans-serif;
+  background: rgb(2,0,36);
+  background:linear-gradient(328deg, #111111 0%, #333333 40%, #555555 100%);;
+  margin: auto;
+  max-width: 480px;
+  width:90%;
+  border-radius: 5px;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+  padding:7.5px;
+  color: #ffffff;
+  text-decoration:none;
+  transition: all .5s;
+}
+input#searchbar:focus {
+  -webkit-box-shadow: 0px 0px 21px 10px rgba(255,255,255,0.15);
+  -moz-box-shadow: 0px 0px 21px 10px rgba(255,255,255,0.15);
+  box-shadow: 0px 0px 21px 10px rgba(255,255,255,0.15);
+  transition: all .5s;
+}
+button {
+  color: #082cdd
+}
+.spacer {
+    height: 20px;
+}
+
+</style>
+</head>
+<body>
+<center><div id="antennae"></div></center>
+<center><div id="car"></center>
+<center><div id="body"></center>
+</div>
+<center><div id="leftcircle"></div></center>
+<center><div id="rightcircle"></div><div id="station">[----|----]</div></center>
+<center><br><br><br><br><br><br><br><br><br></center><p></p><main><div id="elements"><br><h1><center>SoundMix Beta</center></h1>
+  <p><center><b>Stream live radios right from your device!</b></center></p>
+  <br>
+    <input type="text" id="searchbar" onkeyup="search()" placeholder="Search for a radio from the list below!" title="Type in a radio">
+
+<ul id="list">
+  <!--Reggae-->
+  <!------------------------------------------------>
+  <li><a href="#"> Reggae: <audio id="Reggae"><source src="https://us2.internet-radio.com/proxy/riddim1radio?mp=/stream"></audio>
+   <button onclick="document.getElementById('Reggae').play()">Play <b>Live</b></button> 
+  <button onclick="document.getElementById('Reggae').pause()">Stop</button> </a></li>
+   <!--Electronic-->
+  <div class="spacer"></div>
+  <!------------------------------------------------>
+  <li><a href="#">Electronic:<audio id="Electronic"><source src="https://us4.internet-radio.com/proxy/etherealradio?mp=/live"></audio>
+   <button onclick="document.getElementById('Electronic').play()">Play <b>Live</b></button> 
+  <button onclick="document.getElementById('Electronic').pause()">Stop</button> </a></li>
+
+   <!--NPR-->
+  <div class="spacer"></div>
+  <li><a href="#">NPR:<audio id="NPR"><source src="https://npr-ice.streamguys1.com/live.mp3"></audio>
+  <button onclick="document.getElementById('NPR').play()">Play <b>Live</b></button> 
+  <button onclick="document.getElementById('NPR').pause()">Stop</button> </a></li>
+
+  
+    
+</ul>
+
+<script>
+function search() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("searchbar");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("list");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+  </div></main>
+
+  <footer><center>--------------------------------------------</center></footer>
+  <footer><center>© 2023 - 2024 PianoMan0, MilesWK & PollitoSD. All rights reserved.</center></footer>
+  <br>
+  <footer><center>SoundMix is not responsible for any inapropriate content heard on this website.</center></footer>
+  <script src="script.js"></script>
+
+ 
+</body>
+
+</html>
+
+
+<script src="filesystem:https://webmaker.app/temporary/script.js">
+</script>
+</body>
+</html>
