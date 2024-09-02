@@ -1,4 +1,4 @@
-# Soundmix Beta
+# [Soundmix Beta](pianoman0.github.io/Soundmix-Beta/)
 **By PianoMan0, MilesWK & PollitoSD**
 
 ---
