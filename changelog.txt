@@ -1,0 +1,11 @@
+MilesWK
+9/2/2024
+   - Moved CSS to "style.css" file
+   - Moved JS to "script.js" file
+   - Created Icon and added it
+   - Changed color slightly on the main element
+   - Changed the README.md file a little bit. 
+   - Created changelog.txt
+
+changelog.txt: Add changes here. 
+
